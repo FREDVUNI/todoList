@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todos</title>
+    <link rel="shortcut icon" href="./assets/images/kanzucode.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+ <div class="container">
+     <div id="heading">
+        <h1>Todo Items</h1>
+        <p id="subtitle">Add your items here</p>
+        <label for="item">What is your main focus today ?</label>
+        <input type="text" name="item" id="item" class="form-control" placeholder="Enter item e.g create a github repository"/>
+    </div>
+ </div>
+ <div class="list">
+        <ul id="items">
+            <li id="item">
+               <i class="fas fa-thumbs-up complete"></i> 
+               <span>Get it out</span>
+               <i class="fas fa-pencil edit"></i> 
+               <i class="fas fa-trash delete"></i> 
+            </li>
+            <li id="item">
+               <i class="fas fa-thumbs-up complete"></i> 
+               <span>Get it out</span>
+               <i class="fas fa-pencil edit"></i> 
+               <i class="fas fa-trash delete"></i> 
+            </li>
+            <li id="item">
+               <i class="fas fa-thumbs-up complete"></i> 
+               <span>Get it out</span>
+               <i class="fas fa-pencil edit"></i> 
+               <i class="fas fa-trash delete"></i> 
+            </li>
+        </ul>
+    </div>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>

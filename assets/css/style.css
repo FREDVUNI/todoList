@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffff;
+}
+.container{
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    background-color: #ffff;
+}
+#heading{
+    text-align: center;
+}
+#heading h1 {
+    font-size: 45px;
+    color: #5f6368;
+    font-weight: 900;
+}
+#icon i{
+    font-size: 45px;
+    color: #5f6368;
+}
+#subtitle{
+    margin-bottom: 35px;
+    color: #ccc;
+}
+label{
+  display:block; 
+  margin-bottom: 20px; 
+}
+.form-control{
+    width: 500px;
+    padding: .5rem .8rem;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.list{
+    display: block;
+    width: 520px;
+    margin: 20px auto 0px;
+    background-color: #fff;
+    padding: 0px 10px 10px 10px;
+    border-radius: 10px
+    
+}
+
+.list #item {
+    overflow: hidden;
+    padding: 20px 0 ;
+    border-bottom: 1px solid #eee;
+}
+#item .complete {
+    cursor:pointer;
+    list-style: none;
+    float: left;
+}
+#item span {
+    margin-left: 20px;
+}
+#item .edit {
+    cursor:pointer;
+    list-style: none;
+    float: right;
+}
+#item .delete {
+    cursor: pointer;
+    list-style: none;
+    float: right;
+    padding-right: 15px;
+}
+@media (max-width:480px) {
+    .list {
+        padding: 8px;
+        display: block;
+        justify-content: center;
+        width: 200px;
+    }
+    .form-control {
+        width: 200px;
+    }
+}
+@media (max-width:768px) {
+    .list {
+        padding: 8px;
+        display: block;
+        justify-content: center;
+        width: 500px;
+    }
+    .form-control {
+        width: 500px;
+    }
+}
+@media (max-width:1024px) {
+    .list {
+        padding: 8px;
+        display: block;
+        justify-content: center;
+        width: 350px;
+    }
+
+    .form-control {
+        width: 350px;
+    }
+}
+@media (max-width:1200px) {
+    .list {
+        padding: 8px;
+        display: block;
+        justify-content: center;
+        width: 350px;
+    }
+    .form-control{
+        width: 350px;
+    }
+}
+
+
+
