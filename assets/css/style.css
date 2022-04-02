@@ -48,6 +48,9 @@ label{
     color: #dc3545;
     margin-right:300px; 
 }
+#error-span{
+    padding-left: 100px;
+}
 .list {
     display: block;
     width: 520px;
@@ -106,6 +109,9 @@ li{
     #error {
         margin-right: 150px;
     }
+    #error-span {
+        padding-left: 100px;
+    }
 }
 @media (max-width:768px) {
     .list {
@@ -119,6 +125,9 @@ li{
     }
     #error {
         margin-right: 150px;
+    }
+    #error-span {
+        padding-left:48px;
     }
 }
 @media (max-width:1024px) {
@@ -135,6 +144,9 @@ li{
     #error {
         margin-right: 150px;
     }
+    #error-span {
+        padding-left: 48px;
+    }
 }
 @media (max-width:1200px) {
     .list {
@@ -148,6 +160,9 @@ li{
     }
     #error {
         margin-right: 150px;
+    }
+    #error-span {
+        padding-left: 48px;
     }
 }
 

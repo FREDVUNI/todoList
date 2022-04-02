@@ -59,7 +59,9 @@ if(todoItems){
         return listElement
         })
         items.append(...todoList)
-    } 
+}else{
+    error.innerHTML = `<span id="error-span">There are currently no tasks available.</span>`
+} 
             
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
