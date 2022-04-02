@@ -62,7 +62,7 @@ if(todoItems){
 }else{
     error.innerHTML = `<span id="error-span">There are currently no tasks available.</span>`
 } 
-            
+           
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
 
@@ -76,18 +76,16 @@ form.addEventListener("submit",(e)=>{
         inputElement.focus()
         let listElement = document.querySelector("li")
         if(listElement !== null && listElement.classList.contains("update")){
-            let items = JSON.parse(localStorage.getItem("todo-items"))
-            items.forEach(item=>{
-                if (item.activity === inputElement.value) {
-                    inputElement.style.borderColor = "#dc3545";
-                    error.innerHTML = `<span>This task already exists.</span>`
-                    inputElement.focus()
-                }
-            })
             editTask(listElement.innerText)
             reload()
         }else{
-            addItem()
+            if(todoItems[0].activity === inputElement.value){
+                inputElement.style.borderColor = "#dc3545";
+                error.innerHTML = `<span>This task already exists.</span>`
+                inputElement.focus()
+            }else{
+                addItem()
+            }
         }
     }
 })
