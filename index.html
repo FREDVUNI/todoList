@@ -14,31 +14,18 @@
      <div id="heading">
         <h1>Todo Items</h1>
         <p id="subtitle">Add your items here</p>
-        <label for="item">What is your main focus today ?</label>
-        <input type="text" name="item" id="item" class="form-control" placeholder="Enter item e.g create a github repository"/>
+        <form id="form">
+            <label for="item">What is your main focus today ?</label>
+            <input type="text" name="item" id="todo-item" class="form-control" placeholder="Enter item e.g create a github repository" autocomplete="off"/>
+            <p id="error"></p>
+        </form>
     </div>
  </div>
  <div class="list">
         <ul id="items">
-            <li id="item">
-               <i class="fas fa-thumbs-up complete"></i> 
-               <span>Get it out</span>
-               <i class="fas fa-pencil edit"></i> 
-               <i class="fas fa-trash delete"></i> 
-            </li>
-            <li id="item">
-               <i class="fas fa-thumbs-up complete"></i> 
-               <span>Get it out</span>
-               <i class="fas fa-pencil edit"></i> 
-               <i class="fas fa-trash delete"></i> 
-            </li>
-            <li id="item">
-               <i class="fas fa-thumbs-up complete"></i> 
-               <span>Get it out</span>
-               <i class="fas fa-pencil edit"></i> 
-               <i class="fas fa-trash delete"></i> 
-            </li>
+            
         </ul>
+        <p id="clear"><i class="fas fa-close"></i> clear list</p>
     </div>
 <script src="./assets/js/script.js"></script>
 </body>

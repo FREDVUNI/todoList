@@ -44,49 +44,67 @@ label{
     background-color: #fff;
     border: 1px solid #ccc;
 }
-.list{
+#error{
+    color: #dc3545;
+    margin-right:300px; 
+}
+.list {
     display: block;
     width: 520px;
     margin: 20px auto 0px;
     background-color: #fff;
     padding: 0px 10px 10px 10px;
     border-radius: 10px
-    
 }
-
-.list #item {
+.list li {
     overflow: hidden;
-    padding: 20px 0 ;
+    padding: 20px 0;
     border-bottom: 1px solid #eee;
 }
-#item .complete {
-    cursor:pointer;
+
+#items .complete {
+    cursor: pointer;
     list-style: none;
     float: left;
+    margin-right:20px;
 }
-#item span {
-    margin-left: 20px;
+#items .completed{
+    text-decoration: line-through;
 }
-#item .edit {
-    cursor:pointer;
+.notCompleted{
+    text-decoration: none;
+}
+li{
+    text-decoration:none;
+}
+#items .edit {
+    cursor: pointer;
     list-style: none;
     float: right;
+    margin-right:20px;
 }
-#item .delete {
+
+#items .delete {
     cursor: pointer;
     list-style: none;
     float: right;
     padding-right: 15px;
 }
+#clear{
+    color: red;
+    cursor: pointer;
+}
 @media (max-width:480px) {
     .list {
-        padding: 8px;
+        padding: 5px;
         display: block;
         justify-content: center;
-        width: 200px;
     }
     .form-control {
         width: 200px;
+    }
+    #error {
+        margin-right: 150px;
     }
 }
 @media (max-width:768px) {
@@ -98,6 +116,9 @@ label{
     }
     .form-control {
         width: 500px;
+    }
+    #error {
+        margin-right: 150px;
     }
 }
 @media (max-width:1024px) {
@@ -111,6 +132,9 @@ label{
     .form-control {
         width: 350px;
     }
+    #error {
+        margin-right: 150px;
+    }
 }
 @media (max-width:1200px) {
     .list {
@@ -121,6 +145,9 @@ label{
     }
     .form-control{
         width: 350px;
+    }
+    #error {
+        margin-right: 150px;
     }
 }
 
