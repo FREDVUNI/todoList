@@ -44,9 +44,6 @@ if(todoItems){
         editTaskIcon.addEventListener("click",()=>{
             inputElement.value = item.activity
             listElement.classList.add("update")
-            editTask(item.activity)
-            updateTask()
-            console.log(item.activity)
         })
 
         deleteTaskIcon.addEventListener("click",()=>{
@@ -62,7 +59,8 @@ if(todoItems){
 }else{
     error.innerHTML = `<span id="error-span">There are currently no tasks available.</span>`
 } 
-           
+
+
 form.addEventListener("submit",(e)=>{
     e.preventDefault()
 
@@ -76,14 +74,20 @@ form.addEventListener("submit",(e)=>{
         inputElement.focus()
         let listElement = document.querySelector("li")
         if(listElement !== null && listElement.classList.contains("update")){
-            editTask(listElement.innerText)
-            reload()
-        }else{
-            if(todoItems && todoItems[0].activity === inputElement.value){
+            if(todoItems && todoItems.some(item => item.activity === inputElement.value)){
                 inputElement.style.borderColor = "#dc3545";
                 error.innerHTML = `<span>This task already exists.</span>`
                 inputElement.focus()
-            }else{
+            } else{
+                editTask(listElement.innerText)
+                reload()
+            }
+        }else{
+            if(todoItems && todoItems.some(item => item.activity === inputElement.value)){
+                inputElement.style.borderColor = "#dc3545";
+                error.innerHTML = `<span>This task already exists.</span>`
+                inputElement.focus()
+            } else{
                 addItem()
             }
         }
@@ -103,10 +107,10 @@ function completeTask(task){
 
 function editTask(task){
     let items = JSON.parse(localStorage.getItem("todo-items"))
-
     items.forEach(item=>{
         if (item.activity === task) {
             item.activity = inputElement.value;
+            item.completed = item.completed;
         }
     })
     localStorage.setItem("todo-items", JSON.stringify(items));
@@ -116,7 +120,7 @@ function updateTask(){
    let items = document.querySelectorAll("li")
    const toDos = []
 
-   items.forEach(item=>toDos.unshift({
+   items.forEach(item=>toDos.push({
         date:new Date(),
         activity:item.innerText,
         completed:item.classList.contains("completed")
