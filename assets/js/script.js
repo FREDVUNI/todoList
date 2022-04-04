@@ -79,7 +79,7 @@ form.addEventListener("submit",(e)=>{
             editTask(listElement.innerText)
             reload()
         }else{
-            if(todoItems[0].activity !== null && todoItems[0].activity === inputElement.value){
+            if(todoItems && todoItems[0].activity === inputElement.value){
                 inputElement.style.borderColor = "#dc3545";
                 error.innerHTML = `<span>This task already exists.</span>`
                 inputElement.focus()
