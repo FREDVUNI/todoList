@@ -44,6 +44,9 @@ if(todoItems){
         editTaskIcon.addEventListener("click",()=>{
             inputElement.value = item.activity
             listElement.classList.add("update")
+            let obj = {"date":new Date(),"activity":item.activity,"completed":item.completed}
+
+            localStorage.setItem("single-item",JSON.stringify(obj))
         })
 
         deleteTaskIcon.addEventListener("click",()=>{
@@ -72,16 +75,22 @@ form.addEventListener("submit",(e)=>{
     }else{
         error.innerHTML =""
         inputElement.focus()
-        let listElement = document.querySelector("li")
-        if(listElement !== null && listElement.classList.contains("update")){
-            if(todoItems && todoItems.some(item => item.activity === inputElement.value)){
-                inputElement.style.borderColor = "#dc3545";
-                error.innerHTML = `<span>This task already exists.</span>`
-                inputElement.focus()
-            } else{
-                editTask(listElement.innerText)
-                reload()
-            }
+        let listElement = [...document.querySelectorAll("li")]
+        let oneItem = JSON.parse(localStorage.getItem("single-item"))
+        let item = listElement.some(i => i.innerText === oneItem.activity)
+    
+        if(oneItem !== null && item){
+            let obj = {"date":new Date(),"activity":oneItem.activity,"completed":oneItem.completed}
+            let newObj = {"date":new Date(),"activity":inputElement.value,"completed":oneItem.completed}
+            let p = todoItems.slice()
+            let existingObj = p.find(item =>item.activity === obj.activity)
+            if(existingObj){
+                    Object.assign(existingObj,newObj)
+                }else{
+                    p.push(newObj)
+                }
+            localStorage.setItem("todo-items",JSON.stringify(p)) 
+            reload()
         }else{
             if(todoItems && todoItems.some(item => item.activity === inputElement.value)){
                 inputElement.style.borderColor = "#dc3545";
@@ -107,6 +116,7 @@ function completeTask(task){
 
 function editTask(task){
     let items = JSON.parse(localStorage.getItem("todo-items"))
+
     items.forEach(item=>{
         if (item.activity === task) {
             item.activity = inputElement.value;
